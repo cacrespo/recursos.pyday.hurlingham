@@ -285,13 +285,13 @@
             </div>
          </div>
 
-         <div class="d-flex flex-wrap align-items-center mt-3" style="gap: 14px;">
+         <div class="hero-actions-container mt-3">
             {% if event.registration_is_open %}
-            <a class="btn btn-pyday btn-lg" href="{% url 'attendee_registration' event_slug %}" style="box-shadow: 0 0 25px rgba(56, 189, 248, 0.45); font-size: 1.15rem; padding: 0.85rem 2.2rem;">
+            <a class="btn btn-pyday btn-lg hero-cta-btn" href="{% url 'attendee_registration' event_slug %}">
                <i class="fa fa-user-plus mr-2"></i> ¡Anotate al evento!
             </a>
             {% else %}
-            <a class="btn btn-pyday btn-lg" href="{% url 'attendee_registration' event_slug %}" style="box-shadow: 0 0 25px rgba(56, 189, 248, 0.45); font-size: 1.15rem; padding: 0.85rem 2.2rem;">
+            <a class="btn btn-pyday btn-lg hero-cta-btn" href="{% url 'attendee_registration' event_slug %}">
                <i class="fa fa-user-plus mr-2"></i> ¡Anotate al evento!
             </a>
             {% endif %}
