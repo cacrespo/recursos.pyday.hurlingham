@@ -1085,3 +1085,155 @@ footer.footer, .footer {
   transform: scale(1.04);
 }
 
+/* ==========================================================================
+   Speaker Bio Modal & Interactive Triggers (PoC)
+   ========================================================================== */
+.speaker-bio-trigger {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin: -2px -8px;
+  transition: all 0.2s ease;
+  color: #38bdf8 !important;
+  text-decoration: none !important;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.speaker-bio-trigger:hover,
+.speaker-bio-trigger:focus {
+  background: rgba(56, 189, 248, 0.12);
+  color: #7dd3fc !important;
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+}
+
+.speaker-bio-trigger .bio-hint-icon {
+  font-size: 0.78rem;
+  opacity: 0.65;
+  margin-left: 6px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.speaker-bio-trigger:hover .bio-hint-icon {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.speaker-bio-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.speaker-bio-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 15, 29, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: fadeInBioModal 0.2s ease-out;
+}
+
+.speaker-bio-dialog {
+  position: relative;
+  z-index: 10501;
+  width: 100%;
+  max-width: 550px;
+  background: linear-gradient(145deg, #131b2e 0%, #0d1322 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(56, 189, 248, 0.18);
+  overflow: hidden;
+  animation: scaleInBioModal 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.speaker-bio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.speaker-avatar-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.speaker-bio-name {
+  color: #ffffff;
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.speaker-bio-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.speaker-bio-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.speaker-bio-body {
+  padding: 1.5rem;
+  color: #cbd5e1;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.speaker-bio-footer {
+  padding: 0.85rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: flex-end;
+}
+
+@keyframes fadeInBioModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleInBioModal {
+  from { opacity: 0; transform: scale(0.92) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+

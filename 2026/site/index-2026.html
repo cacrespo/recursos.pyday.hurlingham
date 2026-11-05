@@ -1816,7 +1816,12 @@
                         <span class="badge-workshop">Charla Extendida</span>
                      </div>
                      <strong class="schedule-title">Esto huele mal: sensación, curiosidad y lo que no conviene delegar a la IA</strong>
-                     <span class="schedule-speaker d-block mt-1 text-info"><i class="fa fa-user-circle mr-1 text-warning"></i> Hernán Wilkinson</span>
+                     <span class="schedule-speaker d-block mt-1">
+                        <a href="javascript:void(0)" class="speaker-bio-trigger" onclick="showSpeakerBio('Hernán Wilkinson'); return false;" title="Ver biografía de Hernán Wilkinson">
+                           <i class="fa fa-user-circle mr-1 text-warning"></i> Hernán Wilkinson
+                           <i class="fa fa-info-circle bio-hint-icon text-info" title="Ver biografía"></i>
+                        </a>
+                     </span>
                   </li>
                   <li class="schedule-item border-0 pb-0 mb-0">
                      <div class="mb-1">
@@ -1862,6 +1867,201 @@
       </div>
    </div>
 </div>
+
+<!-- Modal de Biografía de Disertantes (PoC) -->
+<div id="speakerBioModal" class="speaker-bio-modal" style="display: none;" role="dialog" aria-modal="true" aria-hidden="true">
+   <div class="speaker-bio-backdrop" onclick="closeSpeakerModal()"></div>
+   <div class="speaker-bio-dialog">
+      <div class="speaker-bio-header">
+         <div class="d-flex align-items-center">
+            <div class="speaker-avatar-circle mr-3">
+               <i class="fa fa-user-circle fa-2x text-warning"></i>
+            </div>
+            <div>
+               <h4 id="speakerBioName" class="speaker-bio-name mb-0">Disertante</h4>
+               <small id="speakerBioTalk" class="text-info font-weight-bold d-block mt-1">Charla / Taller</small>
+            </div>
+         </div>
+         <button type="button" class="speaker-bio-close" onclick="closeSpeakerModal()" aria-label="Cerrar">
+            <i class="fa fa-times"></i>
+         </button>
+      </div>
+      <div class="speaker-bio-body">
+         <h6 class="text-muted text-uppercase mb-2 font-weight-bold" style="font-size: 0.75rem; letter-spacing: 1px;">
+            <i class="fa fa-address-card mr-1 text-primary"></i> Biografía
+         </h6>
+         <p id="speakerBioContent" class="speaker-bio-text mb-0">
+            Biografía...
+         </p>
+      </div>
+      <div class="speaker-bio-footer">
+         <button type="button" class="btn btn-sm btn-outline-info" onclick="closeSpeakerModal()">
+            <i class="fa fa-check mr-1"></i> Cerrar
+         </button>
+      </div>
+   </div>
+</div>
+
+<style>
+.speaker-bio-trigger {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin: -2px -8px;
+  transition: all 0.2s ease;
+  color: #38bdf8 !important;
+  text-decoration: none !important;
+  background: transparent;
+  border: 1px solid transparent;
+}
+.speaker-bio-trigger:hover,
+.speaker-bio-trigger:focus {
+  background: rgba(56, 189, 248, 0.12);
+  color: #7dd3fc !important;
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+}
+.speaker-bio-trigger .bio-hint-icon {
+  font-size: 0.78rem;
+  opacity: 0.65;
+  margin-left: 6px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.speaker-bio-trigger:hover .bio-hint-icon {
+  opacity: 1;
+  transform: scale(1.2);
+}
+.speaker-bio-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.speaker-bio-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 15, 29, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.speaker-bio-dialog {
+  position: relative;
+  z-index: 10501;
+  width: 100%;
+  max-width: 550px;
+  background: linear-gradient(145deg, #131b2e 0%, #0d1322 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(56, 189, 248, 0.18);
+  overflow: hidden;
+}
+.speaker-bio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+.speaker-avatar-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.speaker-bio-name {
+  color: #ffffff;
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+.speaker-bio-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.speaker-bio-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+.speaker-bio-body {
+  padding: 1.5rem;
+  color: #cbd5e1;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.speaker-bio-footer {
+  padding: 0.85rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: flex-end;
+}
+</style>
+
+<script>
+var SPEAKER_BIOS = {
+   "Hernán Wilkinson": {
+      talk: "Esto huele mal: sensación, curiosidad y lo que no conviene delegar a la IA",
+      bio: "Programador apasionado. Lic. en Ciencias de la Computación de la UBA. Fundador de 10Pines y de FAST (Fundación Argentina de Smalltalk). Profesor de la FCEyN de la UBA. Enseña el Paradigma de Objetos y Técnicas Agiles en la universidad y la industria. Key Note Speaker de congresos nacionales e internacionales. Contribuye en proyectos opensource de Smalltalk. Promueve las organizaciones auto organizadas y las metodologías ágiles. Lo pueden seguir en @hernanwilkinson"
+   }
+};
+
+function showSpeakerBio(name) {
+   var data = SPEAKER_BIOS[name];
+   if (!data) return;
+   var modal = document.getElementById('speakerBioModal');
+   if (!modal) return;
+   document.getElementById('speakerBioName').textContent = name;
+   document.getElementById('speakerBioTalk').textContent = data.talk || '';
+   document.getElementById('speakerBioContent').textContent = data.bio || '';
+   modal.style.display = 'flex';
+   modal.setAttribute('aria-hidden', 'false');
+   document.body.style.overflow = 'hidden';
+}
+
+function closeSpeakerModal() {
+   var modal = document.getElementById('speakerBioModal');
+   if (!modal) return;
+   modal.style.display = 'none';
+   modal.setAttribute('aria-hidden', 'true');
+   document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+   if (e.key === 'Escape' || e.keyCode === 27) {
+      closeSpeakerModal();
+   }
+});
+</script>
 
 <!-- SECCIÓN: PATROCINADORES -->
 <div id="sponsors" class="card sponsors-section text-center p-3 p-md-5">
