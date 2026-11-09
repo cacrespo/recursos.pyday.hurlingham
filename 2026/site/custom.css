@@ -1043,6 +1043,38 @@ footer.footer, .footer {
   line-height: 1.5;
 }
 
+/* Workshop registration CTA button with high contrast */
+.btn-workshop-register,
+a.btn-workshop-register,
+.schedule-workshop-card .btn-success,
+.schedule-workshop-card a.btn-success {
+  background-color: #059669 !important;
+  border-color: #059669 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-workshop-register:hover,
+a.btn-workshop-register:hover,
+.schedule-workshop-card .btn-success:hover,
+.schedule-workshop-card a.btn-success:hover {
+  background-color: #047857 !important;
+  border-color: #047857 !important;
+  color: #ffffff !important;
+  filter: brightness(1.15);
+  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.45) !important;
+  transform: translateY(-1px);
+  text-decoration: none !important;
+}
+
+.btn-workshop-register i,
+.btn-workshop-register span {
+  color: #ffffff !important;
+}
+
 .schedule-break-item {
   background: rgba(245, 158, 11, 0.06);
   border: 1px solid rgba(245, 158, 11, 0.2);
