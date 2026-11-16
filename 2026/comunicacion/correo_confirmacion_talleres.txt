@@ -1,0 +1,73 @@
+================================================================================
+PYDAY HURLINGHAM 2026 — PLANTILLAS DE CORREO DE CONFIRMACIÓN A TALLERES
+================================================================================
+
+--------------------------------------------------------------------------------
+OPCIÓN 1: CORREO GENERAL (Para envío masivo pegando la lista de emails en CCO)
+--------------------------------------------------------------------------------
+
+ASUNTO:
+PyDay Hurlingham 2026 — Confirmación de inscripción a talleres
+
+CUERPO:
+¡Hola!
+
+Te escribimos desde la organización del PyDay Hurlingham 2026 para confirmar tu inscripción y participación en los talleres prácticos del evento.
+
+Como los cupos en los laboratorios son limitados, queremos asegurarnos de tu presencia y recordarte algunos detalles importantes para el día del evento:
+
+📍 ¿En qué aula se dicta?
+Al momento de ingresar y realizar la acreditación, nuestro equipo te va a indicar exactamente en qué aula / laboratorio de informática se llevará a cabo tu taller.
+
+💻 ¿Qué necesitás traer?
+De ser posible, te recomendamos traer tu propia laptop con su cargador. Esto te permitirá trabajar cómodamente en tu entorno de desarrollo y llevarte todo lo trabajado puesto. (En caso de que no dispongas de laptop, los laboratorios contarán con computadoras de apoyo según disponibilidad).
+
+📅 Datos del evento:
+• Fecha: Sábado 14 de noviembre de 2026.
+• Lugar: Universidad Nacional de Hurlingham (UNAHUR) — Edificio N° 2 “Trabajo Argentino” (Tte. Origone 151, Villa Tesei, Hurlingham).
+• Acreditación: A partir de las 09:00 hs (¡te sugerimos venir temprano para acreditarte con tiempo!).
+• Inicio de talleres turno mañana: 10:00 hs.
+• Inicio de talleres turno tarde: 14:30 hs.
+
+⚠️ Importante — Si no podés asistir:
+Si por alguna razón no vas a poder concurrir, por favor respondé a este correo avisándonos a la brevedad para que podamos cederle el lugar a alguien en lista de espera.
+
+¡Nos vemos el sábado para disfrutar de una gran jornada de Python y comunidad!
+
+Saludos,
+Equipo Organizador de PyDay Hurlingham 2026
+https://eventos.python.org.ar/events/pyday-hurlingham-2026/
+
+
+--------------------------------------------------------------------------------
+OPCIÓN 2: CORREO PERSONALIZADO (Para Mail Merge o script con variables)
+--------------------------------------------------------------------------------
+
+ASUNTO:
+[PyDay Hurlingham 2026] Confirmación para el taller: {nombre_taller}
+
+CUERPO:
+Hola {nombre},
+
+¡Ya casi llega el PyDay Hurlingham 2026! Te escribimos para confirmar tu lugar en el taller "{nombre_taller}" ({horario_taller}).
+
+Para que aproveches al máximo la experiencia, te compartimos información clave:
+
+1. Asignación de aula:
+Al momento de hacer la acreditación por la mañana en la entrada del edificio, el equipo organizador te informará el aula y laboratorio correspondiente a tu taller.
+
+2. Laptop y equipo:
+De ser posible, traé tu laptop y cargador. Vas a realizar ejercicios prácticos durante toda la sesión. Si podés tener Python instalado previamente, ¡mucho mejor!
+
+3. Horarios y Ubicación:
+• Fecha: Sábado 14 de Noviembre de 2026.
+• Lugar: UNAHUR — Edificio N° 2 “Trabajo Argentino” (Tte. Origone 151, Villa Tesei).
+• Acreditación: Desde las 09:00 hs.
+
+4. Liberación de cupo:
+Si no podés participar, avisanos respondiendo a este correo para liberar tu vacante a quien esté en espera.
+
+¡Te esperamos el sábado!
+
+Organización PyDay Hurlingham 2026
+https://eventos.python.org.ar/events/pyday-hurlingham-2026/

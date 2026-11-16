@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyDay Hurlingham 2026 — Placas de Sponsors (Loop Automático)</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #0f172a;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #viewport {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            max-width: 177.78vh; /* 16:9 ratio */
+            max-height: 56.25vw;
+            background: #000;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #f8fafc;
+        }
+
+        /* Controls bar - fades out automatically */
+        #controls-bar {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 8px 18px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            z-index: 50;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #viewport:hover #controls-bar,
+        #controls-bar:hover {
+            opacity: 1;
+        }
+
+        .btn-ctrl {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: none;
+            outline: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .btn-ctrl:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .slide-dots {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dot.active {
+            background: #38bdf8;
+            transform: scale(1.3);
+        }
+
+        /* Progress Bar */
+        #progress-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 60;
+        }
+
+        #progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #38bdf8, #facc15);
+            transition: width 0.1s linear;
+        }
+
+        /* Live Clock in Corner */
+        #live-clock {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            color: rgba(30, 41, 59, 0.8);
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 4px 12px;
+            border-radius: 8px;
+            backdrop-filter: blur(4px);
+            z-index: 40;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Fullscreen hint */
+        #fs-hint {
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+            z-index: 40;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        #viewport:hover #fs-hint {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="viewport">
+        <!-- Progress bar indicating countdown to next slide -->
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <div id="live-clock">--:--:--</div>
+        <div id="fs-hint">💡 Presioná <b>F11</b> para Pantalla Completa | <b>Espacio</b> para Pausar</div>
+
+        <!-- Slides -->
+        <div class="slide active"><img src="placas_sponsors/01_portada_sponsors.png" alt="Portada PyDay Hurlingham 2026 - Sponsors"></div>
+        <div class="slide"><img src="placas_sponsors/02_sponsor_lovelytics.png" alt="Lovelytics - Sponsor"></div>
+        <div class="slide"><img src="placas_sponsors/03_sponsor_gcoop.png" alt="gcoop - Sponsor"></div>
+        <div class="slide"><img src="placas_sponsors/04_sponsor_devecoop.png" alt="Devecoop - Sponsor"></div>
+        <div class="slide"><img src="placas_sponsors/05_sponsor_musa.png" alt="Musa - Sponsor"></div>
+        <div class="slide"><img src="placas_sponsors/06_info_util.png" alt="Información y Canales Útiles"></div>
+        <div class="slide"><img src="placas_sponsors/07_en_breve_continuamos.png" alt="En Breve Continuamos"></div>
+
+        <!-- On-screen control bar -->
+        <div id="controls-bar">
+            <button class="btn-ctrl" id="btn-prev" title="Anterior (Flecha izquierda)">◀ Ant</button>
+            <button class="btn-ctrl" id="btn-playpause" title="Pausar / Reanudar (Barra espaciadora)">⏸ Pausa</button>
+            <button class="btn-ctrl" id="btn-next" title="Siguiente (Flecha derecha)">Sig ▶</button>
+            
+            <div class="slide-dots" id="dots-container"></div>
+            
+            <button class="btn-ctrl" id="btn-fs" title="Pantalla completa">⛶ Pantalla Completa</button>
+        </div>
+    </div>
+
+    <script>
+        const SLIDE_DURATION = 7000; // 7 seconds per slide
+        let currentSlide = 0;
+        let isPaused = false;
+        let elapsed = 0;
+        let timerInterval = null;
+
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.getElementById('dots-container');
+        const progressBar = document.getElementById('progress-bar');
+        const btnPlayPause = document.getElementById('btn-playpause');
+        const clockEl = document.getElementById('live-clock');
+
+        // Build dots
+        slides.forEach((_, i) => {
+            const d = document.createElement('div');
+            d.className = 'dot' + (i === 0 ? ' active' : '');
+            d.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(d);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlideUI() {
+            slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+            elapsed = 0;
+            progressBar.style.width = '0%';
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlideUI();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlideUI();
+        }
+
+        function goToSlide(idx) {
+            currentSlide = idx;
+            updateSlideUI();
+        }
+
+        function togglePlayPause() {
+            isPaused = !isPaused;
+            btnPlayPause.textContent = isPaused ? '▶ Reanudar' : '⏸ Pausa';
+        }
+
+        // Timer tick (every 100ms)
+        setInterval(() => {
+            if (!isPaused) {
+                elapsed += 100;
+                const pct = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+                progressBar.style.width = pct + '%';
+                if (elapsed >= SLIDE_DURATION) {
+                    nextSlide();
+                }
+            }
+        }, 100);
+
+        // Live Clock
+        function updateClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const s = String(now.getSeconds()).padStart(2, '0');
+            clockEl.textContent = `${h}:${m}:${s} hs`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Keyboard navigation
+        window.addEventListener('keydown', (e) => {
+            if (e.key === ' ' || e.code === 'Space') {
+                e.preventDefault();
+                togglePlayPause();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key.toLowerCase() === 'f') {
+                toggleFullscreen();
+            }
+        });
+
+        // Event listeners
+        document.getElementById('btn-next').onclick = nextSlide;
+        document.getElementById('btn-prev').onclick = prevSlide;
+        btnPlayPause.onclick = togglePlayPause;
+
+        function toggleFullscreen() {
+            const elem = document.getElementById('viewport');
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => alert(`Error al iniciar pantalla completa: ${err.message}`));
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        document.getElementById('btn-fs').onclick = toggleFullscreen;
+    </script>
+</body>
+</html>

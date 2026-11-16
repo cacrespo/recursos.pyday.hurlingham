@@ -1,0 +1,31 @@
+Asunto: Mañana PyDay Hurlingham 2026 🐍 Datos clave para speakers
+
+Hola [Nombre],
+
+¡Mañana nos vemos en el PyDay Hurlingham 2026! Te pasamos los datos clave para tu participación:
+
+📍 DÓNDE:
+UNAHUR - Edificio 2 "Trabajo Argentino" (Tte. Origone 151, Villa Tesei).
+
+⏰ HORARIOS Y LLEGADA:
+• Acreditación: desde las 09:00 hs (en la entrada avisa que sos speaker para retirar tu credencial).
+• Apertura oficial: 09:45 hs.
+• Tu bloque: [Charla/Taller - Horario]
+• Llegada sugerida: al menos 40 minutos antes de tu horario para probar pantalla y audio con tranquilidad.
+• Cronograma: https://eventos.python.org.ar/events/pyday-hurlingham-2026/schedule
+
+💻 PROYECCIÓN Y TÉCNICA:
+• Conexión HDMI nativa en salas (si usas Mac o USB-C, por favor trae tu adaptador).
+• Formato de pantalla: 16:9. Micrófono y pasador de slides disponibles en sala.
+• Trae tu presentación descargada en tu máquina o en pendrive (backup offline).
+
+🥪 CATERING:
+• Café continuo y almuerzo incluido (13:00 a 14:30 hs) para speakers.
+
+📞 CONTACTO URGENTE:
+Ante demoras o imprevistos de viaje, escribinos a:
+• Carlos Crespo / Organización: [WhatsApp: +54 9 11 XXXX-XXXX]
+
+¡Muchas gracias por sumarte y nos vemos mañana!
+
+Organización PyDay Hurlingham 2026
